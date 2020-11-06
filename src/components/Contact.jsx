@@ -15,7 +15,10 @@ function Contact() {
           <div className="col-lg-5">
             <h1 className="font-weight-light">Contact</h1>
             <p>
-              So this is my contact page: donald@creativecomplement.com
+              So this is my contact page: 
+              <a href="mailto:donald@creativecomplement.com">
+                 donald@creativecomplement.com
+              </a>
             </p>
           </div>
         </div>

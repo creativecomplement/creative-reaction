@@ -56,7 +56,7 @@ function Navigation(props) {
                 }`}
               >
                 <Link className="nav-link" to="/sheets">
-                <span className="creative-complement-text">Sheets</span>
+                <span className="creative-complement-text">Dashboard</span>
                 </Link>
               </li>
               <li
