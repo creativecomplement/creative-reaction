@@ -57,7 +57,6 @@ function NasaPhoto() {
         <p className="date">{photoData.date}</p>
         <p className="explanation">{photoData.explanation}</p>
       </div>
-      <div>" "</div>
     </div>
   );
 }

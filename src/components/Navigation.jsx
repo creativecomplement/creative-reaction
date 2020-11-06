@@ -61,6 +61,15 @@ function Navigation(props) {
               </li>
               <li
                 className={`nav-item  ${
+                  props.location.pathname === "/todos" ? "active" : ""
+                }`}
+              >
+                <Link className="nav-link" to="/todos">
+                <span className="creative-complement-text">Todos</span>
+                </Link>
+              </li>
+              <li
+                className={`nav-item  ${
                   props.location.pathname === "/contact" ? "active" : ""
                 }`}
               >
