@@ -1,8 +1,8 @@
 import React from "react";
 
-function Contact() {
+function Story() {
   return (
-    <div className="about">
+    <div className="mystory">
       <div className="container">
         <div className="row align-items-center my-5">
           <div className="col-lg-7">
@@ -13,12 +13,9 @@ function Contact() {
             />
           </div>
           <div className="col-lg-5">
-            <h1 className="font-weight-light">About</h1>
+            <h1 className="font-weight-light">My Story</h1>
             <p>
-              So this is my contact info: 
-              <a href="mailto:donald@creativecomplement.com">
-                 donald@creativecomplement.com
-              </a>
+              Get to know all about me here.
             </p>
           </div>
         </div>
@@ -27,4 +24,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Story;

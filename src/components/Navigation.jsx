@@ -34,11 +34,20 @@ function Navigation(props) {
               </li>
               <li
                 className={`nav-item  ${
-                  props.location.pathname === "/about" ? "active" : ""
+                  props.location.pathname === "/mystory" ? "active" : ""
                 }`}
               >
-                <Link className="nav-link" to="/about">
-                <span className="creative-complement-text">About</span>
+                <Link className="nav-link" to="/mystory">
+                <span className="creative-complement-text">My Story</span>
+                </Link>
+              </li>
+              <li
+                className={`nav-item  ${
+                  props.location.pathname === "/creative" ? "active" : ""
+                }`}
+              >
+                <Link className="nav-link" to="/creative">
+                <span className="creative-complement-text">Creation</span>
                 </Link>
               </li>
               <li
@@ -70,11 +79,11 @@ function Navigation(props) {
               </li>
               <li
                 className={`nav-item  ${
-                  props.location.pathname === "/contact" ? "active" : ""
+                  props.location.pathname === "/about" ? "active" : ""
                 }`}
               >
-                <Link className="nav-link" to="/contact">
-                <span className="creative-complement-text">Contact</span>
+                <Link className="nav-link" to="/about">
+                <span className="creative-complement-text">About</span>
                 </Link>
               </li>
             </ul>

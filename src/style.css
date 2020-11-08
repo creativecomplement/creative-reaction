@@ -240,14 +240,14 @@
 .input-submit {
     flex: 2;
     border: none;
-    background: #038203;
+    background: #297F6D;
     color: #fff;
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 600;
     width: 20%;
     outline: none;
-    border-radius: 4px;
+    border-radius: 2px;
   }
   .todo-item {
     list-style-type: none;
@@ -265,7 +265,7 @@
     cursor: pointer;
     float: right;
     outline: none;
-    border-radius: 4px;
+    border-radius: 2px;
   }
 
   * {
@@ -293,6 +293,8 @@
     outline: none;
     font-weight: 400;
     max-width: 80%;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
   }
   .input-text::placeholder {
     color: rgb(17, 17, 17);

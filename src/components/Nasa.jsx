@@ -36,7 +36,7 @@ function NasaPhoto() {
     }
   }, []);
 
-  if (!photoData) return <div className="pl-3">No photo found for this date.</div>;
+  if (!photoData) return <div className="pl-3">Photo information loading...</div>;
 
   return (
     <div className="nasa-photo pl-3">
