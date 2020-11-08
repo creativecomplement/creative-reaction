@@ -21,16 +21,22 @@ function NasaPhoto() {
     fetchPhoto();
 
     async function fetchPhoto() {
-      const res = await fetch(
-        `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${theDate}`
-      );
-      const data = await res.json();
-      setPhotoData(data);
-      //console.log(data);
+      try {
+        const response = await fetch(
+          `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${theDate}`
+        );
+        if (!response.ok){
+          throw Error(response.statusText);
+        }
+        const data = await response.json();
+        setPhotoData(data);
+      } catch(error) {
+        console.log(error);
+      }
     }
   }, []);
 
-  if (!photoData) return <div />;
+  if (!photoData) return <div className="pl-3">No photo found for this date.</div>;
 
   return (
     <div className="nasa-photo pl-3">

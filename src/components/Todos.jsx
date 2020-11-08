@@ -12,6 +12,7 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:bat
 //const url = `https://jsonplaceholder.typicode.com/todos?_limit=10`
 //  Trying out sheet.best (free to try) to simplify google sheets interaction for MVP
 //const url = `https://sheet.best/api/sheets/6c0797c0-6210-4e29-a4f4-7e5b87024c9a`
+//const url = `http://httpstat.us/500`
 
 class Todos extends React.Component{
     state = {
@@ -83,26 +84,32 @@ class Todos extends React.Component{
         return arr;
     }
 
-    componentDidMount() {
+    async componentDidMount() {
 
         //okay, check out sheety.co
         
         //axios.get("https://jsonplaceholder.typicode.com/todos?_limit=10")
             //.then(response => this.setState({ todos: response.data }));
 
-            fetch(url)
-              .then(response => response.json())
-              .then(data => {
+            try{
+                const response = await fetch(url)
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                const data = await response.json();
+
                 let batchRowValues = data.valueRanges[0].values;
-                
+                  
                 //pull out the sheets data
                 const rows = returnRows(batchRowValues);
 
                 //sheets data is all strings, format the data types
                 this.setState({ todos: this.formatData(rows) });
-              })
-              .catch(error => {console.log(error);
-            });
+
+            } catch (error) {
+                console.log(error);
+            }
+
 
     }
 
