@@ -98,24 +98,12 @@ class Todos extends React.Component{
                 //pull out the sheets data
                 const rows = returnRows(batchRowValues);
 
-                //alter this to pass to a formatting function like Sheets getData()
+                //sheets data is all strings, format the data types
                 this.setState({ todos: this.formatData(rows) });
               })
               .catch(error => {console.log(error);
             });
-              //.then(data => {
 
-        //Notes for me: I am just going to use the Sheets API for this
-        //I am most likely running up against the limits of the shared
-        //connection for Sheetson, thus the 403.
-/*         const fetch = require('isomorphic-fetch');
-        fetch("https://api.sheetson.com/v2/sheets/todo_items", {
-            headers: {
-                "Authorization" : "Bearer V9bK1R-7XHm-18UQEre_sHp8Quph_4nF1VM5-qa1FjIYSTGGN8fAk6sbWLg",
-                "X-Spreadsheet-Id" : "1EYQc1ffpp1ZCiynjufzVcGKP4qosztd3xunPe3L9SuM"
-            }
-        }).then(r => r.json())
-        .then(result => this.setState({ todos: result })) */
     }
 
     render() {
