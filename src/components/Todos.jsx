@@ -2,6 +2,7 @@ import React from "react"
 import TodoList from "./Todos/TodoList"
 import Header from "./Todos/Header"
 import InputTodo from "./Todos/InputTodo"
+import returnRows from "./return-rows"
 
 const apiKey = process.env.REACT_APP_SHEETS_KEY;
 
@@ -86,24 +87,9 @@ class Todos extends React.Component{
               .then(data => {
                 let batchRowValues = data.valueRanges[0].values;
 
-                const rows = [];
-                for (let i = 1; i < batchRowValues.length; i++) {
-                  let rowObject = {};
-                  for (let j = 0; j < batchRowValues[i].length; j++) {
-                      if (j < 2) {
-                        rowObject[batchRowValues[0][j]] = parseInt(batchRowValues[i][j]);
-                      } else if (j > 2){
-                        rowObject[batchRowValues[0][j]] = Boolean(parseInt(batchRowValues[i][j]));
-                      } else {
-                        rowObject[batchRowValues[0][j]] = batchRowValues[i][j];
-                      }
-                    
-                    //console.log(rowObject);
-                  }
-                  rows.push(rowObject);
-                }
+                const rows = returnRows(batchRowValues);
 
-                  //const theData = 
+                //const theData = 
                   //console.log(rows);
                 this.setState({ todos: rows })
               })
