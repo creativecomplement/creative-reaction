@@ -81,21 +81,6 @@ class Todos extends React.Component{
         }
 
         return arr;
-        /*let rowObject = {};
-        for (let j = 0; j < batchRowValues[i].length; j++) {
-            if (j < 2) {
-              rowObject[batchRowValues[0][j]] = parseInt(batchRowValues[i][j]);
-            } else if (j > 2){
-              rowObject[batchRowValues[0][j]] = Boolean(parseInt(batchRowValues[i][j]));
-            } else {
-              rowObject[batchRowValues[0][j]] = batchRowValues[i][j];
-            }
-          
-          //console.log(rowObject);
-        }
-        rows.push(rowObject);
-      } */
-
     }
 
     componentDidMount() {
@@ -105,13 +90,12 @@ class Todos extends React.Component{
         //axios.get("https://jsonplaceholder.typicode.com/todos?_limit=10")
             //.then(response => this.setState({ todos: response.data }));
 
-            //when using the sheets data I need to go through and get the
-            //values by reading through each set (looping)
             fetch(url)
               .then(response => response.json())
               .then(data => {
                 let batchRowValues = data.valueRanges[0].values;
-
+                
+                //pull out the sheets data
                 const rows = returnRows(batchRowValues);
 
                 //alter this to pass to a formatting function like Sheets getData()
