@@ -73,6 +73,31 @@ class Todos extends React.Component{
         ) */
     };
 
+    formatData = arg => {
+        const arr = arg;
+        const arrLength = arr.length;
+        for (let i = 0; i < arrLength; i++) {
+            arr[i].completed = Boolean(parseInt(arg[i].completed));
+        }
+
+        return arr;
+        /*let rowObject = {};
+        for (let j = 0; j < batchRowValues[i].length; j++) {
+            if (j < 2) {
+              rowObject[batchRowValues[0][j]] = parseInt(batchRowValues[i][j]);
+            } else if (j > 2){
+              rowObject[batchRowValues[0][j]] = Boolean(parseInt(batchRowValues[i][j]));
+            } else {
+              rowObject[batchRowValues[0][j]] = batchRowValues[i][j];
+            }
+          
+          //console.log(rowObject);
+        }
+        rows.push(rowObject);
+      } */
+
+    }
+
     componentDidMount() {
 
         //okay, check out sheety.co
@@ -89,9 +114,8 @@ class Todos extends React.Component{
 
                 const rows = returnRows(batchRowValues);
 
-                //const theData = 
-                  //console.log(rows);
-                this.setState({ todos: rows })
+                //alter this to pass to a formatting function like Sheets getData()
+                this.setState({ todos: this.formatData(rows) });
               })
               .catch(error => {console.log(error);
             });

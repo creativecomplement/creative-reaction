@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import formatNum from "./format-number";
+import returnRows from "./return-rows";
 import { Container, Nav } from "./styled-components";
 import Dropdown from "react-dropdown";
 
@@ -147,14 +148,7 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:bat
               .then(data => {
                 let batchRowValues = data.valueRanges[0].values;
         
-                const rows = [];
-                for (let i = 1; i < batchRowValues.length; i++) {
-                  let rowObject = {};
-                  for (let j = 0; j < batchRowValues[i].length; j++) {
-                    rowObject[batchRowValues[0][j]] = batchRowValues[i][j];
-                  }
-                  rows.push(rowObject);
-                }
+                const rows = returnRows(batchRowValues);
         
                 // dropdown options
                 let dropdownOptions = [];
