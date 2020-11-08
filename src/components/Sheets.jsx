@@ -142,10 +142,14 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:bat
             this.setState({ selectedValue: event.value });
           };
         
-          componentDidMount() {
-            fetch(url)
-              .then(response => response.json())
-              .then(data => {
+          async componentDidMount() {
+            try {
+              const response = await fetch(url);
+              if (!response.ok) {
+                throw Error(response.statusText);
+              }
+              const data = await response.json();
+
                 let batchRowValues = data.valueRanges[0].values;
         
                 const rows = returnRows(batchRowValues);
@@ -167,8 +171,10 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:bat
                   },
                   () => this.getData("Jan 2019")
                 );
-              });
-          }
+            } catch (error) {
+                console.log(error);
+              }
+          } 
           render() {
             
               return (
