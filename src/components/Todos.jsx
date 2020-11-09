@@ -2,7 +2,7 @@ import React from "react"
 import TodoList from "./Todos/TodoList"
 import Header from "./Todos/Header"
 import InputTodo from "./Todos/InputTodo"
-import returnRows from "./return-rows"
+import returnRows from "./functions/return-rows"
 
 const apiKey = process.env.REACT_APP_SHEETS_KEY;
 

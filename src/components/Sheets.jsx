@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import formatNum from "./format-number";
-import returnRows from "./return-rows";
+import formatNum from "./functions/format-number";
+import returnRows from "./functions/return-rows";
 import { Container, Nav } from "./styled-components";
 import Dropdown from "react-dropdown";
 
