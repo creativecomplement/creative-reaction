@@ -1,18 +1,14 @@
-// src/components/NasaPhoto.js
-
-//Sync'd this evening 10/23/2020 to home, not able to run the NASA image
-//First, needed to create the .env file with the key because I .gitignore that
-//Then it still does not work. I went to api.nasa.gov and tested both the 
-// my key then the demo_key. They are trying to return data/image for 
-// 10/24/2020. That is on the API end of things.
 //**** I need to add a null check and return a default value *****/
 import React, { useState, useEffect } from "react";
+import * as moment from 'moment';
 
 const apiKey = process.env.REACT_APP_NASA_KEY;
 
 var date = new Date();
 
-const theDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+const theDate = moment(date).format('YYYY-MM-DD');
+
+const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${theDate}`
 
 function NasaPhoto() {
   const [photoData, setPhotoData] = useState(null);
@@ -22,9 +18,7 @@ function NasaPhoto() {
 
     async function fetchPhoto() {
       try {
-        const response = await fetch(
-          `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${theDate}`
-        );
+        const response = await fetch(url);
         if (!response.ok){
           throw Error(response.statusText);
         }

@@ -85,32 +85,27 @@ class Todos extends React.Component{
     }
 
     async componentDidMount() {
-
-        //okay, check out sheety.co
-        
         //axios.get("https://jsonplaceholder.typicode.com/todos?_limit=10")
             //.then(response => this.setState({ todos: response.data }));
 
-            try{
-                const response = await fetch(url)
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-                const data = await response.json();
-
-                let batchRowValues = data.valueRanges[0].values;
-                  
-                //pull out the sheets data
-                const rows = returnRows(batchRowValues);
-
-                //sheets data is all strings, format the data types
-                this.setState({ todos: this.formatData(rows) });
-
-            } catch (error) {
-                console.log(error);
+        try{
+            const response = await fetch(url)
+            if (!response.ok) {
+                throw Error(response.statusText);
             }
+            const data = await response.json();
 
+            let batchRowValues = data.valueRanges[0].values;
+                
+            //pull out the google sheets data
+            const rows = returnRows(batchRowValues);
 
+            //sheets data is all strings, format the data types
+            this.setState({ todos: this.formatData(rows) });
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     render() {
@@ -126,4 +121,5 @@ class Todos extends React.Component{
         )
     }
 }
+
 export default Todos;
