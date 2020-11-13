@@ -67,26 +67,15 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:bat
               if (arg === arr[i]["month"]) {
                 if (arr[i]["source"] === "AM") {
                   amRevenue += parseInt(arr[i].revenue);
-                  ordersTrendStore.push({
-                    label: "Amazon",
-                    value: arr[i].orders,
-                    displayValue: `${arr[i].orders} orders`
-                  });
+                  ordersTrendStore = this.assignValues("Amazon", arr[i].orders, ordersTrendStore);
                 } else if (arr[i]["source"] === "EB") {
                   ebRevenue += parseInt(arr[i].revenue);
-                  ordersTrendStore.push({
-                    label: "Ebay",
-                    value: arr[i].orders,
-                    displayValue: `${arr[i].orders} orders`
-                  });
+                  ordersTrendStore = this.assignValues("Ebay", arr[i].orders, ordersTrendStore);
                 } else if (arr[i]["source"] === "ET") {
                   etRevenue += parseInt(arr[i].revenue);
-                  ordersTrendStore.push({
-                    label: "Etsy",
-                    value: arr[i].orders,
-                    displayValue: `${arr[i].orders} orders`
-                  });
+                  ordersTrendStore = this.assignValues("Etsy", arr[i].orders, ordersTrendStore);
                 }
+
                 productViews += parseInt(arr[i].product_views);
                 purchaseRate += parseInt(arr[i].purchase_rate / 3);
                 checkoutRate += parseInt(arr[i].checkout_rate / 3);
@@ -136,7 +125,16 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:bat
           };
 
           /* end of getData */
-        
+          assignValues(companyname, orders, ordersTrendStore) {
+            ordersTrendStore.push({
+              label: companyname,
+              value: orders,
+              displayValue: `${orders} orders`
+            });
+
+            return ordersTrendStore;
+          }
+          
           updateDashboard = event => {
             this.getData(event.value);
             this.setState({ selectedValue: event.value });
