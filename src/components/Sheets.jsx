@@ -67,13 +67,13 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:bat
               if (arg === arr[i]["month"]) {
                 if (arr[i]["source"] === "AM") {
                   amRevenue += parseInt(arr[i].revenue);
-                  ordersTrendStore = this.assignValues("Amazon", arr[i].orders, ordersTrendStore);
+                  ordersTrendStore.push(this.assignValues("Amazon", arr[i].orders));
                 } else if (arr[i]["source"] === "EB") {
                   ebRevenue += parseInt(arr[i].revenue);
-                  ordersTrendStore = this.assignValues("Ebay", arr[i].orders, ordersTrendStore);
+                  ordersTrendStore.push(this.assignValues("Ebay", arr[i].orders));
                 } else if (arr[i]["source"] === "ET") {
                   etRevenue += parseInt(arr[i].revenue);
-                  ordersTrendStore = this.assignValues("Etsy", arr[i].orders, ordersTrendStore);
+                  ordersTrendStore.push(this.assignValues("Etsy", arr[i].orders));
                 }
 
                 productViews += parseInt(arr[i].product_views);
@@ -125,14 +125,14 @@ const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values:bat
           };
 
           /* end of getData */
-          assignValues(companyname, orders, ordersTrendStore) {
-            ordersTrendStore.push({
+          assignValues(companyname, orders) {
+            const orderTrendTemp = [];
+            orderTrendTemp.push({
               label: companyname,
               value: orders,
               displayValue: `${orders} orders`
             });
-
-            return ordersTrendStore;
+            return orderTrendTemp;
           }
           
           updateDashboard = event => {
