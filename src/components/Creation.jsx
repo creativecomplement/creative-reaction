@@ -7,7 +7,7 @@ function Creation() {
         <div className="col-lg-7">
           <img
             className="img-fluid rounded mb-4 mb-lg-0"
-            src="http://placehold.it/900x400"
+            src="https://via.placeholder.com/400x200?text=This is a placeholder.com image."
             alt=""
           />
         </div>

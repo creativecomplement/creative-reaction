@@ -300,3 +300,7 @@
     color: rgb(17, 17, 17);
     opacity: 0.8;
   }
+
+  .para-text {
+    text-indent: 25px;
+  }
