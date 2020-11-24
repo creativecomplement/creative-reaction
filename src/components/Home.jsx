@@ -6,7 +6,7 @@ function Home() {
       <div className="row align-items-top my-5">
         <div className="col-lg-6">
           <h1 className="font-weight-light">Home column1</h1>
-            <span className="para-text creative-complement-text">
+            <span className="para-text">
               <img
                 className="img-fluid rounded mb-4 mb-lg-0"
                 src="https://via.placeholder.com/400x200?text=This is a placeholder.com image."
@@ -21,9 +21,9 @@ function Home() {
         </div>
         <div className="col-lg-6">
           <h1 className="font-weight-light">Home column2</h1>
-          <span className="para-text creative-complement-text">
+          <span className="para-text">
             <p>
-              I think this may be too much green! I am doing this work with the columns and the
+              I think this may be too much green...so I am trying the honeywheat! I am doing this work with the columns and the
               adjustments to start getting serious about my content and layout work.
             </p>
             <p>
