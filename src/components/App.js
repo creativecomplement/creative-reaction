@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import { Navigation, Footer, Home, Story, Creation, Nasa, About, Sheets, Todos } from ".";
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Navigation />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
@@ -17,7 +17,7 @@ function App() {
           <Route path="/about" exact component={() => <About />} /> */}
         </Switch>
         <Footer />
-      </Router>
+      </HashRouter>
     </div>
   );
 }
