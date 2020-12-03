@@ -5,7 +5,7 @@ import { Navigation, Footer, Home, Story, Creation, Nasa, About, Sheets, Todos }
 function App() {
   return (
     <div className="App">
-      <HashRouter>
+      <HashRouter basename="/">
         <Navigation />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
