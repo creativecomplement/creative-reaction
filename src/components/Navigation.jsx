@@ -41,7 +41,7 @@ function Navigation(props) {
                 <span className="creative-complement-text">My Story</span>
                 </Link>
               </li>
-              <li
+{/*               <li
                 className={`nav-item  ${
                   props.location.pathname === "/creative" ? "active" : ""
                 }`}
@@ -85,7 +85,7 @@ function Navigation(props) {
                 <Link className="nav-link" to="/about">
                 <span className="creative-complement-text">About</span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
