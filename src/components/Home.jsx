@@ -9,7 +9,7 @@ function Home() {
             <span className="para-text">
               <img
                 className="img-fluid rounded mb-4 mb-lg-0"
-                src="https://via.placeholder.com/400x200?text=This is a placeholder.com image."
+                src="https://drive.google.com/uc?id=1D9hsj8N94f3r0-Lf4_atqcY5rHHIKb7q"
                 alt=""
               />
               <p>
